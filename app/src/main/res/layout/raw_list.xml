@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rawlist"
+    android:weightSum="1">
+
+
+    <TextView
+        android:text="أحاديث"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_name"
+        android:textSize="25dp"
+        android:textColor="@color/colorBlack"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:text="آيات قرانية"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_desc"
+        android:textSize="10dp"
+
+        android:layout_weight="0.27" />
+
+</LinearLayout>

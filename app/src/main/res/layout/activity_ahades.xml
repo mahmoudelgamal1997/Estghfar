@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ahades"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example2017.android.estghfar.Ahades">
+
+
+
+    />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tt"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:text="                                                                                          عن أبي هريره رضي الله عنه  قال :                        سمعت رسول الله  عليه الصلاه و السلام  يقول  و الله اني لاستغفر الله و اتوب اليه في اليوم أكثر من سبعين مرة                                                                           رواه البخاري
+ "             android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:id="@+id/textView3"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/View03"
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:background="#000000" />
+
+            <TextView
+                android:text= "    عن انس , رضي الله عنه , قال : سمعت رسول الله , صلي الله عليه و سلم , يقول :: قال الله تعالي  ياابن ادم إنك ما دعوتني و رجوتني غفرت لك علي ما كان منك ولا أُبالي ,, يا ابن آدم لو بلغت ذنوبك عنان السمآء ثم استغفرتني غفرتُ لك ولا أُبالي ,, يا أبن آدم إنك لو آتيتني بقُراب الارض خطايا , ثم لقيتني لا تشرك بي شيئا , لأتيتُك بقرابها مغفره                                                                              رواه الترمذي
+ "          android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:id="@+id/textView1"
+                android:textSize="20dp"
+                android:layout_weight="0.19" />
+            <View
+                android:id="@+id/View02"
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:background="#000000" />
+            <TextView
+                android:text="
+عن بن عمر , رضي الله عنهما , ان النبي , صلي الله عليه و سلم , قال :  يامعشر النساء , تصدقن , و اكثرن من الاستغفار , فإني رأيتكن أكثر اهل النار  , قالت أمراه منهن :: مالنا اكثر اهل النار ؟ قال ::  تُكثرن اللعن , و تكفرن العشير , مارأيت من ناقصات عقلِ و دين , اغلب الذي لُب منكن , قالت :  ما نقصان العقل و الدين ؟؟
+        قال ::  شهاده أمرأتين بشهاده رجل ,, و تمكث الايام لا تُصلي
+                                                                                 رواه مسلم
+ "          android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:id="@+id/textView2"
+                android:textSize="20dp"
+                />
+            <View
+                android:id="@+id/View01"
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:background="#000000" />
+
+            <TextView
+                android:text="  عن بن عمر , رضي الله عنهما , قال : كنا نعُد للرسول , عليه صلوات الله , في المجلس الواحد مائه مره
+ رب اغفر لي , و تب علي إنك انت التواب الرحيم.
+                                                            رواه ابو داود , و الترمذي
+
+        "          android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:id="@+id/textView4"
+                android:textSize="20dp"
+                />
+            <View
+                android:id="@+id/View00"
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:background="#000000" />
+
+            <TextView
+                android:text="  عن ابي هريرة , رضي الله عنه , قال : قال رسول الله , صلي الله عليه و سلم ,  و الذي نفسي بيده لو لم تُذنبوا , لذهب الله تعالي بكم , و لجاء بقوم يُذنبون فيستغفرون الله تعالي , فيغفر لهم
+                                                                                                                    رواه مسلم
+
+        "          android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorwhite"
+                android:id="@+id/textView5"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>
