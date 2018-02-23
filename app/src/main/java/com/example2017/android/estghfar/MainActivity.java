@@ -42,11 +42,17 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sh;
     EditText input;
     MediaPlayer mMediaPlayer;
+    DataBaseHelper dataBaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dataBaseHelper=new DataBaseHelper(this);
+
+
+
 
 
         mMediaPlayer = new MediaPlayer();
@@ -71,26 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-        @Override
-        public void onConfigurationChanged(Configuration newConfig) {
-            super.onConfigurationChanged(newConfig);
-
-            String s ="" ;
-
-            if (newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE) {
-
-    s ="Landscape orientation\n";
-            }            else if (newConfig.orientation==Configuration.ORIENTATION_PORTRAIT){
-                s ="Portrait orientation\n";
-
-                }
-
-            s+="onconfig was called "+(()getApplicationContext()).inc()+"times";
-            }
 
 
-    */
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -234,7 +224,31 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AddData(text1.getText().toString());
+
+    }
+
+    public void AddData(String data){
+
+        boolean insertData = dataBaseHelper.AddData(data);
+
+        if(insertData==true){
+            Toast.makeText(this, "Data Successfully Inserted!", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Something went wrong :(.", Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 
 }

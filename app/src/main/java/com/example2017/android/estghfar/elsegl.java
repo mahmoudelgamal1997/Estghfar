@@ -37,6 +37,7 @@ public class elsegl extends AppCompatActivity {
 m=t;
 
          items = new ArrayList<elsegl_item>();
+        /*
         sh=getSharedPreferences("plz", Context.MODE_PRIVATE );
 
       final String num= (sh.getString( "data","emputy" ) );
@@ -45,8 +46,15 @@ m=t;
         ListView ls = (ListView) findViewById(R.id.listView);
         items.add(new elsegl_item("استغفر الله ",num,t));
 
+
         mycustomAdapter mycustomAdapter = new mycustomAdapter(items);
         ls.setAdapter(mycustomAdapter);
+*/
+        ListView ls = (ListView) findViewById(R.id.listView);
+
+
+
+
 
 
     }
