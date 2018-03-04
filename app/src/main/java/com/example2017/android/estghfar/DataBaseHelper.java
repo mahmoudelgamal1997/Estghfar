@@ -15,6 +15,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME="mylist_data";
     public static final String COL1="ID";
     public static final String COL2="ITEM1";
+    public static final String COL3="DATE";
+
+
 
     public DataBaseHelper(Context context) {
         super(context, DataBaseName, null, 1);
@@ -24,7 +27,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " ITEM1 TEXT)";
+                " ITEM1 TEXT, DATE TEXT )";
+
         sqLiteDatabase.execSQL(createTable);
 
     }
@@ -35,12 +39,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean AddData(String data){
+    public boolean AddData(String number,String date){
         SQLiteDatabase db=this.getWritableDatabase();
 
         ContentValues contentValues=new ContentValues();
-        contentValues.put(COL2,data);
-
+        contentValues.put(COL2,number);
+        contentValues.put(COL3,date);
          long result=db.insert(TABLE_NAME,null,contentValues);
 
         if(result == -1 ){

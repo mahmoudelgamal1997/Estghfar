@@ -19,7 +19,4 @@ public class elsegl_item {
     }
 
 
-    public elsegl_item(String name, int i, String s) {
-
-    }
 }
