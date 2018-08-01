@@ -1,31 +1,28 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class elsegl extends AppCompatActivity {
 
     SharedPreferences sh;
 
-    public   ArrayList<elsegl_item> items;
     DataBaseHelper dataBaseHelper;
-ListView listView;
-    public  String mdate;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +39,7 @@ ListView listView;
 
         Cursor data = dataBaseHelper.getData();
         if(data.getCount() == 0){
-            Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "لا يوجد سجل حتي الان ",Toast.LENGTH_LONG).show();
         }else{
             while(data.moveToNext()){
              theList.add(new elsegl_item("استغفر الله ",data.getString(1),data.getString(2)));
@@ -55,7 +52,40 @@ ListView listView;
     }
 
 
-class CustomAdapter extends BaseAdapter{
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater =getMenuInflater();
+        menuInflater.inflate(R.menu.elsegl_item,menu);
+
+    return true;
+
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+    switch (item.getItemId()){
+        case R.id.delete:
+
+    }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+
+
+
+
+    class CustomAdapter extends BaseAdapter{
 
     ArrayList<elsegl_item> item =new ArrayList<>();
 

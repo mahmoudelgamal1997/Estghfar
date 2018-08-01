@@ -1,17 +1,14 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
 
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.preference.ListPreference;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,23 +18,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.InterstitialAd;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String Default = "N/A";
+    int Ads_Time=12000*1000;
     int count = 0;
     TextView text1;
     Button btn;
@@ -47,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     EditText input;
     MediaPlayer mMediaPlayer;
     DataBaseHelper dataBaseHelper;
-
+    InterstitialAd mInterstitialAd;
+    private InterstitialAd interstitial;
+    AdRequest adRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +51,27 @@ public class MainActivity extends AppCompatActivity {
 
         dataBaseHelper=new DataBaseHelper(this);
 
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+         adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+// Prepare the Interstitial Ad
+        interstitial = new InterstitialAd(MainActivity.this);
+// Insert the Ad Unit ID
+        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+
+        interstitial.loadAd(adRequest);
+// Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                // Call displayInterstitial() function
+                displayInterstitial();
+            }
+        });
 
         mMediaPlayer = new MediaPlayer();
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7819737441034557/8624191221");
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         input = (EditText) findViewById(R.id.editText3);
         text1 = (TextView) findViewById(R.id.text1);
@@ -76,11 +85,18 @@ public class MainActivity extends AppCompatActivity {
         mMediaPlayer.setLooping(false);
         mMediaPlayer.start();
 
+        start_time();
+
     }
 
 
 
-
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -225,21 +241,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+
+        AddData(text1.getText().toString(),calendre());
+
+    }
+
     @Override
     protected void onStop() {
 
         super.onStop();
 
-        final Calendar c = Calendar.getInstance();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH);
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-
-        final String date = year + "-" + (month + 1) + "-" + day;
-
-
-
-        AddData(text1.getText().toString(),date);
 
     }
 
@@ -247,13 +263,70 @@ public class MainActivity extends AppCompatActivity {
 
         boolean insertData = dataBaseHelper.AddData(number,date);
 
-        if(insertData==true){
-            Toast.makeText(this, "Data Successfully Inserted!", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(this, "Something went wrong :(.", Toast.LENGTH_LONG).show();
-        }
+
     }
 
 
+
+    public void start_time()
+    {
+
+
+        Timer timer=new Timer(Ads_Time,1000);
+        timer.start();
+    }
+
+    public class Timer  extends CountDownTimer {
+        MainActivity m =new MainActivity();
+        public Timer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long l) {
+
+        }
+
+        @Override
+        public void onFinish() {
+
+// Prepare the Interstitial Ad
+            interstitial = new InterstitialAd(MainActivity.this);
+// Insert the Ad Unit ID
+            interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+
+            interstitial.loadAd(adRequest);
+// Prepare an Interstitial Ad Listener
+            interstitial.setAdListener(new AdListener() {
+                public void onAdLoaded() {
+                    // Call displayInterstitial() function
+                    displayInterstitial();
+                }
+            });
+
+
+            start_time();
+
+
+        }
+
+
+
+}
+
+
+
+
+public String calendre(){
+
+    final Calendar c = Calendar.getInstance();
+    final int year = c.get(Calendar.YEAR);
+    final int month = c.get(Calendar.MONTH);
+    final int day = c.get(Calendar.DAY_OF_MONTH);
+
+    final String date = year + "-" + (month + 1) + "-" + day;
+
+    return date;
+}
 
 }

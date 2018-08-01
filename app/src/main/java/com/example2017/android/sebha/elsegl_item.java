@@ -1,4 +1,4 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
 /**
  * Created by M7moud on 12-Jul-17.

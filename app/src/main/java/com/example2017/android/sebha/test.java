@@ -1,13 +1,13 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Qraan extends AppCompatActivity {
+public class test extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qraan);
+        setContentView(R.layout.activity_about);
     }
 }

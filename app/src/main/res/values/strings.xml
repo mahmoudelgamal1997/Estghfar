@@ -6,7 +6,7 @@
     <string name="about">عن الاستغفار</string>
     <string name="السجل">السجل</string>
     <string name="banner_ad_unit_id">ca-app-pub-7819737441034557/8624191221</string>
-
+    <string name="admob_interstitial_id">ca-app-pub-7819737441034557/8045993053</string>
 
     <string-array name="listentries">
         <item>List item 1</item>
@@ -23,7 +23,6 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
-
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 

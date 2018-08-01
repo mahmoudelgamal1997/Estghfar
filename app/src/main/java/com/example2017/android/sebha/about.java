@@ -1,4 +1,4 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

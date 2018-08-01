@@ -7,9 +7,8 @@
 
         />
     <item android:id="@+id/id_segl"
-        android:title="@string/السجل"
+        android:title="@string/السجل"></item>
 
-        ></item>
     <item android:id="@+id/reload"
         android:title="@string/reload"
         app:showAsAction="ifRoom"

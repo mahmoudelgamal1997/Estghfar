@@ -1,4 +1,4 @@
-package com.example2017.android.estghfar;
+package com.example2017.android.sebha;
 
 import org.junit.Test;
 

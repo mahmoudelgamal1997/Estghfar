@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example2017.android.estghfar.MainActivity"
+    tools:context="com.example2017.android.sebha.MainActivity"
     android:background="@drawable/mm"
     android:id="@+id/relative">
 
@@ -51,10 +51,11 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginTop="370dp"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"
-            android:layout_gravity="center_horizontal|bottom">
+            ads:adUnitId="@string/banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
+
 
         <TextView
             android:layout_width="wrap_content"

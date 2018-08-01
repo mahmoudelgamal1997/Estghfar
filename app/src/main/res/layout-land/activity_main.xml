@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example2017.android.estghfar.MainActivity"
+    tools:context="com.example2017.android.sebha.MainActivity"
     android:background="@drawable/mm"
     android:id="@+id/relative">
 
