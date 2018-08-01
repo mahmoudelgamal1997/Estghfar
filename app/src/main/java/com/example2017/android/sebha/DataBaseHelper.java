@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 /**
  * Created by M7moud on 23-Feb-18.
@@ -60,4 +61,14 @@ public Cursor getData(){
     Cursor data=db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     return data;
 }
+
+
+
+    public void  deleteData () {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+             db.execSQL("delete from "+ TABLE_NAME);
+
+        }
 }

@@ -1,7 +1,9 @@
 package com.example2017.android.sebha;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,7 +74,13 @@ public class elsegl extends AppCompatActivity {
     switch (item.getItemId()){
         case R.id.delete:
 
-    }
+
+            Cursor data=dataBaseHelper.getData();
+            int numberOfid =data.getCount();
+
+            dataBaseHelper.deleteData();
+
+                            }
 
 
         return super.onOptionsItemSelected(item);
